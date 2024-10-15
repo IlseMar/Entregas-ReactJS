@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.elementosNav {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  height: 170px;
+  width: 100%;
+  text-align: center;
+  font-family: "Gideon Roman", serif;
+  .tituloNav {
+    font-family: "Gideon Roman", serif;
+    color: rgb(0, 0, 0);
+    font-size: 45px;
+    font-weight: 100;
+    letter-spacing: 10px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    justify-self: center;
+  }
+}
+
+nav {
+  ul {
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 30px 0px 30px;
+    li {
+      float: left;
+      .notActive {
+        font-family: "Gideon Roman", serif;
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        letter-spacing: 4px;
+        padding: 14px 16px;
+        text-decoration: none;
+        background-color: #ffffff;
+        &:hover {
+          background-color: #caad07;
+        }
+      }
+      .isActive {
+        @extend .notActive;
+        background-color: #caad07;
+      }
+
+      // {
+      //   font-family: "Gideon Roman", serif;
+      //   text-decoration: none;
+      //   color: rgb(0, 0, 0);
+      //   letter-spacing: 4px;
+      //   display: flex;
+      //   width: 100%;
+      // }
+    }
+  }
+}
+
+.cart {
+  width: 40px;
+}
+
+// .notActive {
+//   display: block;
+//   color: white;
+//   text-align: center;
+//   padding: 14px 16px;
+//   text-decoration: none;
+//   background-color: #333;
+//   &:hover {
+//     background-color: #111;
+//   }
+// }
+// .isActive {
+//   @extend .notActive;
+//   background-color: fuchsia;
+//   &:hover {
+//     background-color: fuchsia;
+//   }
+// }

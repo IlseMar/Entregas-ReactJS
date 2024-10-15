@@ -1,0 +1,18 @@
+.container {
+  background-color: #02556f;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+
+  .logos {
+    img {
+      padding: 30px;
+    }
+  }
+}
