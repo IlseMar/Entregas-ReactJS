@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Cart as CartContext } from "../context/CartProvider";
-import ItemCount from "./ItemCount"; // Asegúrate de importar el componente de contador
+import ItemCount from "./ItemCount";
 import styles from "../styles/cartItem.module.scss";
 
 const CartItem = ({ item }) => {
@@ -13,24 +13,31 @@ const CartItem = ({ item }) => {
 
   return (
     <div className={styles.cartItem}>
-      <img src={item.pictureUrl} alt={item.title} />
-      <h1>{item.title}</h1>
-      <p>{item.description}</p>
-      <p>Precio: ${item.price}</p>
-      <p>Cantidad: {item.quantity}</p>
+      {/* Imagen del producto */}
+      <img src={item.image} alt={item.diseño} className={styles.productImage} />
+
+      {/* Detalles del producto */}
+      <div className={styles.productDetails}>
+        <h1>{item.diseño}</h1>
+        <p>Modelo: {item.modelo}</p>
+        <p>Precio unitario: ${item.costoTotal / item.unidades}</p>
+        <p>Precio total: ${item.costoTotal}</p>
+        <p>Cantidad: {item.unidades}</p>
+      </div>
 
       {/* Componente de contador para cambiar la cantidad */}
       <ItemCount
         itemId={item.id}
-        initial={item.quantity}
+        initial={item.unidades}
         onQuantityChange={handleQuantityChange}
       />
 
+      {/* Botón para eliminar el producto */}
       <button
         onClick={() => removeFromCart(item.id)}
         className={styles.deleteButton}
       >
-        Delete
+        Eliminar
       </button>
     </div>
   );

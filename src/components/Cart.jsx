@@ -42,22 +42,20 @@ const Cart = () => {
         <>
           <h2>Carrito de compras</h2>
           <p>Total de productos: {totalQuantity}</p>
-          <p>Total a pagar: ${totalPrice}</p>
+          <p>Total a pagar: ${totalPrice.toFixed(2)}</p>
           {cart.map((cartItem) => (
             <CartItem item={cartItem} key={cartItem.id} />
           ))}
           <button onClick={handlePurchase} className={styles.purchaseButton}>
             Finalizar compra
           </button>
-          {message && <p className={styles.message}>{message}</p>}{" "}
-          {/* Muestra el mensaje */}
+          {message && <p className={styles.message}>{message}</p>}
         </>
       ) : (
         <>
           <h1>No hay productos en el carrito</h1>
           <NavLink to={"/"}>Volver al inicio</NavLink>
-          {message && <p className={styles.message}>{message}</p>}{" "}
-          {/* Muestra el mensaje en caso de error */}
+          {message && <p className={styles.message}>{message}</p>}
         </>
       )}
     </div>

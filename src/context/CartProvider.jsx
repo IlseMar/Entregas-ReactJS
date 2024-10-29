@@ -14,13 +14,13 @@ const CartProvider = ({ children }) => {
         if (cartProduct.id === product.id) {
           return {
             ...cartProduct,
-            quantity: cartProduct.quantity + productQuantity,
+            unidades: cartProduct.unidades + productQuantity,
           };
         }
         return cartProduct;
       });
     } else {
-      cartUpdated.push({ ...product, quantity: productQuantity });
+      cartUpdated.push({ ...product, unidades: productQuantity });
     }
 
     setCart(cartUpdated);
@@ -28,7 +28,9 @@ const CartProvider = ({ children }) => {
 
   const updateQuantity = (productId, quantity) => {
     const cartUpdated = cart.map((cartProduct) =>
-      cartProduct.id === productId ? { ...cartProduct, quantity } : cartProduct
+      cartProduct.id === productId
+        ? { ...cartProduct, unidades: quantity }
+        : cartProduct
     );
     setCart(cartUpdated);
   };
@@ -48,14 +50,11 @@ const CartProvider = ({ children }) => {
   };
 
   const totalQuantity = cart.reduce(
-    (acc, product) => acc + product.quantity,
+    (acc, product) => acc + product.unidades,
     0
   );
 
-  const totalPrice = cart.reduce(
-    (acc, product) => acc + product.price * product.quantity,
-    0
-  );
+  const totalPrice = cart.reduce((acc, product) => acc + product.costoTotal, 0);
 
   return (
     <Cart.Provider

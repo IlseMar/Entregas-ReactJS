@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/itemcount.module.scss";
 
-const ItemCount = ({ itemId, initial = 1, onQuantityChange, addCart }) => {
+const ItemCount = ({ initial = 1, onQuantityChange }) => {
   const [count, setCount] = useState(initial);
 
   const increment = () => {
@@ -17,10 +17,6 @@ const ItemCount = ({ itemId, initial = 1, onQuantityChange, addCart }) => {
       onQuantityChange(newCount);
     }
   };
-
-  // const handleAddToCart = () => {
-  //   addCart(count); // Llama a addCart al hacer clic
-  // };
 
   return (
     <div className={styles.container}>
