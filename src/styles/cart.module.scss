@@ -5,3 +5,9 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+.message {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: green; // Para éxito, cambia a rojo si es error
+}

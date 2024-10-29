@@ -24,12 +24,6 @@ const ItemDetailContainer = () => {
         }
       } catch (error) {}
     })();
-
-    // const product = products.find(
-    //   (productToFind) => productToFind.id === Number(id)
-    // );
-    // console.log(product);
-    // setProduct(product);
   }, [id]);
 
   return product && <ItemDetail product={product} />;

@@ -1,20 +1,34 @@
 import React, { useState } from "react";
 import styles from "../styles/itemcount.module.scss";
 
-//addCart es una funcion
-const ItemCount = ({ addCart }) => {
-  const [count, setCount] = useState(0);
-  //Add count logic
+const ItemCount = ({ itemId, initial = 1, onQuantityChange, addCart }) => {
+  const [count, setCount] = useState(initial);
+
+  const increment = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+    onQuantityChange(newCount);
+  };
+
+  const decrement = () => {
+    if (count > 1) {
+      const newCount = count - 1;
+      setCount(newCount);
+      onQuantityChange(newCount);
+    }
+  };
+
+  // const handleAddToCart = () => {
+  //   addCart(count); // Llama a addCart al hacer clic
+  // };
+
   return (
     <div className={styles.container}>
       <div className={styles.operators}>
-        <button>-</button>
+        <button onClick={decrement}>-</button>
         <span>{count}</span>
-        <button>+</button>
+        <button onClick={increment}>+</button>
       </div>
-      <button className={styles.addcart} onClick={() => addCart(count)}>
-        Add cart
-      </button>
     </div>
   );
 };
