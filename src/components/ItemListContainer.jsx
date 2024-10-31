@@ -39,39 +39,6 @@ const ItemListContainer = () => {
         console.log(error);
       }
     })();
-
-    //   const promise1 = new Promise((res, rej) => {
-    //     setTimeout(() => {
-    //       res(mockProducts);
-    //     }, 2000);
-    //   });
-
-    //   try {
-    //     const getProducts = async () => {
-    //       setLoading(true);
-    //       const products = await promise1;
-    //       let productsFiltered;
-    //       if (categoryId) {
-    //         productsFiltered = products.filter(
-    //           (product) => product.category === categoryId
-    //         );
-    //       } else {
-    //         productsFiltered = products;
-    //       }
-    //       setProducts(productsFiltered);
-    //       setLoading(false);
-    //     };
-
-    //     getProducts();
-    //   } catch (error) {}
-    // }, [categoryId]);
-
-    // useEffect(() => {
-    //   console.log("Este side effect se ejecuta en el montaje del componente");
-
-    //   return () => {
-    //     console.log("Aca se va a desmontar el componente!");
-    //   };
   }, [categoryId]);
 
   // console.log(products);

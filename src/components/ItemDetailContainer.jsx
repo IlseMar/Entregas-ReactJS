@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import products from "../assets/mokckData.json";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
@@ -19,7 +18,6 @@ const ItemDetailContainer = () => {
           console.log("Document data:", docSnap.data());
           setProduct({ ...docSnap.data(), id });
         } else {
-          // docSnap.data() will be undefined in this case
           console.log("No such document!");
         }
       } catch (error) {}
