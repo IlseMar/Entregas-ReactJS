@@ -9,13 +9,19 @@ const NavBar = () => {
   const { dark, setDark } = useContext(Theme);
 
   return (
-    <nav className={styles.elementosNav}>
+    <nav
+      className={`${styles.elementosNav} ${
+        dark ? styles["elementosNav-dark"] : ""
+      }`}
+    >
       <h1 className={styles.tituloNav}>CHORMATICA</h1>
       <ul className={styles.list}>
         <li>
           <NavLink
             className={({ isActive }) => {
-              return isActive ? styles.isActive : styles.notActive;
+              return isActive
+                ? styles.isActive
+                : `${styles.notActive} ${dark ? styles["notActive-dark"] : ""}`;
             }}
             to={"/"}
           >
@@ -25,7 +31,9 @@ const NavBar = () => {
         <li>
           <NavLink
             className={({ isActive }) => {
-              return isActive ? styles.isActive : styles.notActive;
+              return isActive
+                ? styles.isActive
+                : `${styles.notActive} ${dark ? styles["notActive-dark"] : ""}`;
             }}
             to={"/category/fundas"}
           >
@@ -35,7 +43,9 @@ const NavBar = () => {
         <li>
           <NavLink
             className={({ isActive }) => {
-              return isActive ? styles.isActive : styles.notActive;
+              return isActive
+                ? styles.isActive
+                : `${styles.notActive} ${dark ? styles["notActive-dark"] : ""}`;
             }}
             to={"/category/espejos"}
           >

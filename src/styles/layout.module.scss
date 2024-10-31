@@ -1,3 +1,14 @@
 .main-container {
   min-height: 800px;
 }
+
+.main-container-light {
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.main-container-dark {
+  @extend .main-container-light;
+  background-color: rgb(15, 15, 15);
+  color: white;
+}
