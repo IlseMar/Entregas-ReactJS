@@ -1,9 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 export const Cart = createContext();
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
+  const [cart, setCart] = useState(initialCart);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addCart = (product, productQuantity) => {
     const productInCart = isInCart(product.id);
@@ -20,6 +27,7 @@ const CartProvider = ({ children }) => {
         return cartProduct;
       });
     } else {
+      const unitPrice = parseFloat(product.precio) || 0;
       cartUpdated.push({ ...product, unidades: productQuantity });
     }
 
@@ -37,6 +45,7 @@ const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart([]); // Vacía el carrito
+    localStorage.removeItem("cart");
   };
 
   const removeFromCart = (productId) => {
@@ -59,7 +68,24 @@ const CartProvider = ({ children }) => {
     0
   );
 
-  // const totalPrice = cart.reduce((acc, product) => acc + product.costoTotal, 0);
+  const saveCartToFirestore = async () => {
+    try {
+      for (const product of cart) {
+        await addDoc(collection(db, "products"), {
+          title: product.title,
+          price: product.costoTotal,
+          description: product.description || "Descripción no disponible",
+          pictureUrl: product.pictureUrl || "URL no disponible",
+          stock: product.unidades || 1,
+          category: product.category || "Sin categoría",
+        });
+      }
+      console.log("Carrito guardado en Firestore exitosamente.");
+      clearCart(); // Opcional: limpiar el carrito después de guardar
+    } catch (error) {
+      console.log("Error al guardar el carrito en Firestore: ", error);
+    }
+  };
 
   return (
     <Cart.Provider
@@ -71,6 +97,7 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         totalQuantity,
         totalPrice,
+        saveCartToFirestore,
       }}
     >
       {children}
