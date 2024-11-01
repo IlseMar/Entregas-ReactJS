@@ -20,19 +20,17 @@ const CartItem = ({ item }) => {
       <div className={styles.productDetails}>
         <h1>{item.diseño}</h1>
         <p>Modelo: {item.modelo}</p>
-        <p>Precio unitario: ${item.costoTotal / item.unidades}</p>
-        <p>Precio total: ${item.costoTotal}</p>
+        <p>Precio unitario: ${item.costoTotal}</p>
+        <p>Precio total: ${item.costoTotal * item.unidades}</p>
         <p>Cantidad: {item.unidades}</p>
       </div>
 
-      {/* Componente de contador para cambiar la cantidad */}
       <ItemCount
         itemId={item.id}
         initial={item.unidades}
         onQuantityChange={handleQuantityChange}
       />
 
-      {/* Botón para eliminar el producto */}
       <button
         onClick={() => removeFromCart(item.id)}
         className={styles.deleteButton}

@@ -20,6 +20,7 @@ const CartProvider = ({ children }) => {
         return cartProduct;
       });
     } else {
+      const unitPrice = parseFloat(product.precio) || 0;
       cartUpdated.push({ ...product, unidades: productQuantity });
     }
 

@@ -83,6 +83,7 @@ const ItemDetail = ({ product }) => {
       />
       <h2>{product.tipoDeDiseño}</h2>
       <h3>Precio total: ${basePrice * quantity}</h3>
+      <p>Precio unitario: ${basePrice}</p>
       <span>{product.description}</span>
 
       {product.tipoDeProducto === "funda" ? (
