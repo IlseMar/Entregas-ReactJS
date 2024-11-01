@@ -20,7 +20,6 @@ const CartProvider = ({ children }) => {
         return cartProduct;
       });
     } else {
-      const unitPrice = parseFloat(product.precio) || 0;
       cartUpdated.push({ ...product, unidades: productQuantity });
     }
 
@@ -55,7 +54,12 @@ const CartProvider = ({ children }) => {
     0
   );
 
-  const totalPrice = cart.reduce((acc, product) => acc + product.costoTotal, 0);
+  const totalPrice = cart.reduce(
+    (acc, product) => acc + product.costoTotal * product.unidades,
+    0
+  );
+
+  // const totalPrice = cart.reduce((acc, product) => acc + product.costoTotal, 0);
 
   return (
     <Cart.Provider
