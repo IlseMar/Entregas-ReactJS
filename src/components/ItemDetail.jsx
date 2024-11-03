@@ -55,6 +55,7 @@ const ItemDetail = ({ product }) => {
       tipoProducto: product.tipoDeProducto,
       modelo: selectedOption,
       unidades: quantity,
+      precioUnitario: basePrice,
       costoTotal: basePrice * quantity,
       diseño: product.tipoDeDiseño,
       image: product.pictureUrl,
@@ -69,7 +70,7 @@ const ItemDetail = ({ product }) => {
       confirmButtonText: "Aceptar",
       timer: 2000,
     }).then(() => {
-      navigate("/cart"); // Redirigir al carrito después de mostrar la alerta
+      navigate("/cart");
     });
   };
 

@@ -27,12 +27,37 @@ const CartProvider = ({ children }) => {
         return cartProduct;
       });
     } else {
-      const unitPrice = parseFloat(product.precio) || 0;
-      cartUpdated.push({ ...product, unidades: productQuantity });
+      cartUpdated.push({
+        ...product,
+        unidades: productQuantity,
+        precioUnitario: product.precioUnitario, // Definimos precio unitario aquí
+      });
     }
 
     setCart(cartUpdated);
   };
+
+  // const addCart = (product, productQuantity) => {
+  //   const productInCart = isInCart(product.id);
+  //   let cartUpdated = [...cart];
+
+  //   if (productInCart) {
+  //     cartUpdated = cart.map((cartProduct) => {
+  //       if (cartProduct.id === product.id) {
+  //         return {
+  //           ...cartProduct,
+  //           unidades: cartProduct.unidades + productQuantity,
+  //         };
+  //       }
+  //       return cartProduct;
+  //     });
+  //   } else {
+  //     const unitPrice = parseFloat(product.precio) || 0;
+  //     cartUpdated.push({ ...product, unidades: productQuantity });
+  //   }
+
+  //   setCart(cartUpdated);
+  // };
 
   const updateQuantity = (productId, quantity) => {
     const cartUpdated = cart.map((cartProduct) =>
@@ -64,9 +89,14 @@ const CartProvider = ({ children }) => {
   );
 
   const totalPrice = cart.reduce(
-    (acc, product) => acc + product.costoTotal * product.unidades,
+    (acc, product) => acc + product.precioUnitario * product.unidades,
     0
   );
+
+  // const totalPrice = cart.reduce(
+  //   (acc, product) => acc + product.costoTotal * product.unidades,
+  //   0
+  // );
 
   const saveCartToFirestore = async () => {
     try {

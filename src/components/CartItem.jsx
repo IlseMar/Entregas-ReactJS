@@ -20,8 +20,8 @@ const CartItem = ({ item }) => {
       <div className={styles.productDetails}>
         <h1>{item.diseño}</h1>
         <p>Modelo: {item.modelo}</p>
-        <p>Precio unitario: ${item.costoTotal}</p>
-        <p>Precio total: ${item.costoTotal * item.unidades}</p>
+        <p>Precio unitario: ${item.precioUnitario}</p>
+        <p>Precio total: ${item.precioUnitario * item.unidades}</p>
         <p>Cantidad: {item.unidades}</p>
       </div>
 
