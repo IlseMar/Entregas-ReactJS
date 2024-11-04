@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { Theme } from "../context/ThemeProvider";
 
 const Layout = ({ children }) => {
-  //"light" o "dark"
   const { dark } = useContext(Theme);
 
   return (

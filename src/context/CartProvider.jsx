@@ -30,34 +30,12 @@ const CartProvider = ({ children }) => {
       cartUpdated.push({
         ...product,
         unidades: productQuantity,
-        precioUnitario: product.precioUnitario, // Definimos precio unitario aquí
+        precioUnitario: product.precioUnitario,
       });
     }
 
     setCart(cartUpdated);
   };
-
-  // const addCart = (product, productQuantity) => {
-  //   const productInCart = isInCart(product.id);
-  //   let cartUpdated = [...cart];
-
-  //   if (productInCart) {
-  //     cartUpdated = cart.map((cartProduct) => {
-  //       if (cartProduct.id === product.id) {
-  //         return {
-  //           ...cartProduct,
-  //           unidades: cartProduct.unidades + productQuantity,
-  //         };
-  //       }
-  //       return cartProduct;
-  //     });
-  //   } else {
-  //     const unitPrice = parseFloat(product.precio) || 0;
-  //     cartUpdated.push({ ...product, unidades: productQuantity });
-  //   }
-
-  //   setCart(cartUpdated);
-  // };
 
   const updateQuantity = (productId, quantity) => {
     const cartUpdated = cart.map((cartProduct) =>
@@ -93,11 +71,6 @@ const CartProvider = ({ children }) => {
     0
   );
 
-  // const totalPrice = cart.reduce(
-  //   (acc, product) => acc + product.costoTotal * product.unidades,
-  //   0
-  // );
-
   const saveCartToFirestore = async () => {
     try {
       for (const product of cart) {
@@ -110,8 +83,8 @@ const CartProvider = ({ children }) => {
           category: product.category || "Sin categoría",
         });
       }
-      console.log("Carrito guardado en Firestore exitosamente.");
-      clearCart(); // Opcional: limpiar el carrito después de guardar
+      // console.log("Carrito guardado en Firestore exitosamente.");
+      clearCart();
     } catch (error) {
       console.log("Error al guardar el carrito en Firestore: ", error);
     }

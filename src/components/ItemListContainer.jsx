@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import mockProducts from "../assets/mokckData.json";
 import { db } from "../firebase/config";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
-  // const [loading, setLoading] = useState(false);
   const { categoryId } = useParams();
 
   useEffect(() => {
@@ -23,7 +21,6 @@ const ItemListContainer = () => {
 
           const querySnapshot = await getDocs(q);
           querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
             productsFiltered.push({ id: doc.id, ...doc.data() });
           });

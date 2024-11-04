@@ -9,7 +9,6 @@ const Footer = () => {
   return (
     <footer className={styles.container}>
       <NavLink
-        // style="text-decoration: none"
         className={styles.logos}
         to="https://www.instagram.com/chromati.ca/"
         target="_blank"
@@ -17,7 +16,6 @@ const Footer = () => {
         <img src={logoInsta} alt="Instagram" />
       </NavLink>
       <NavLink
-        // style="text-decoration: none"
         className={styles.logos}
         to="https://www.facebook.com/profile.php?id=100076318662834&mibextid=ZbWKwL"
         target="_blank"

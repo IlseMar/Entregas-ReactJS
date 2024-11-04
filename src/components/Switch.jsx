@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styles from "../styles/switch.module.scss";
 
 const Switch = ({ checked, setChecked }) => {
