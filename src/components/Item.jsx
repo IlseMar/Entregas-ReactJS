@@ -8,7 +8,6 @@ const Item = ({ item }) => {
       <img src={item.pictureUrl} />
       <h2>{item.title}</h2>
       <span className={styles.productInfo}>{item.description}</span>
-      <span>{item.basePrice}</span>
       <NavLink to={`/detail/${item.id}`}>
         <button className={styles.btnDetail}>
           <span className={styles.textDetail}>Detalles</span>

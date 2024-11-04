@@ -1,0 +1,50 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 450px; // Ajusta la altura según tus necesidades
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1.5s ease, transform 1.5s ease; // Transiciones más lentas y suaves
+  }
+
+  .slide {
+    opacity: 0; // Oculto por defecto
+  }
+
+  .active {
+    opacity: 1; // Totalmente visible
+    transform: scale(1.05); // Efecto de aumento
+  }
+
+  .inactive {
+    opacity: 0; // Totalmente oculto
+    transform: scale(0.95); // Efecto de disminución
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      margin: 0 5px;
+      background-color: gray;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease; // Transición suave al cambiar el color
+    }
+
+    .active {
+      background-color: white; // Cambia el color del punto activo
+    }
+  }
+}

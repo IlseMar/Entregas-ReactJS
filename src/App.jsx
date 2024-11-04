@@ -6,6 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ThemeProvider from "./context/ThemeProvider";
 import CartProvider from "./context/CartProvider";
 import Cart from "./components/Cart";
+import Home from "./components/Home";
 
 //rafce
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
         <BrowserRouter>
           <Layout>
             <Routes>
-              <Route path="/" element={<ItemListContainer />} />
+              <Route path="/" element={<Home />} />
               <Route
                 path="/category/:categoryId"
                 element={<ItemListContainer />}

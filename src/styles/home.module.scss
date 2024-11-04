@@ -1,0 +1,9 @@
+.home-container {
+  display: flex; // Usar flexbox para el contenedor
+  flex-direction: column; // Orientación vertical
+  align-items: center; // Centramos los elementos horizontalmente
+  padding: 20px; // Espaciado interno
+  box-sizing: border-box; // Asegura que padding se incluya en el tamaño total
+  min-height: 100vh; // Asegura que el contenedor ocupe al menos el alto de la ventana
+  background-color: #f9f9f9; // Color de fondo (puedes ajustarlo)
+}
