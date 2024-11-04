@@ -3,7 +3,6 @@ import Footer from "./Footer";
 import styles from "../styles/layout.module.scss";
 import { useContext } from "react";
 import { Theme } from "../context/ThemeProvider";
-import Home from "./Home";
 
 const Layout = ({ children }) => {
   const { dark } = useContext(Theme);

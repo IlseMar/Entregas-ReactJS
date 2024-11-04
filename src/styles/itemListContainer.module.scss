@@ -1,7 +1,32 @@
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center; // Centra la lista de productos
-  padding: 20px; // Espaciado interno
-  background-color: #f9f9f9; // Color de fondo opcional
+  align-items: center; // Centra los elementos verticalmente
+  justify-content: space-between; // Espacio entre botones y la lista de productos
+  padding: 20px;
+}
+
+.itemList {
+  display: flex;
+  justify-content: center; // Centra los productos dentro de su contenedor
+  flex-grow: 1; // Permite que la lista ocupe el espacio disponible
+}
+
+.button {
+  background-color: #b37fc4; // Color de fondo
+  border: none; // Sin borde
+  border-radius: 5px; // Bordes redondeados
+  cursor: pointer; // Cambiar el cursor al pasar sobre el botón
+  padding: 10px; // Espaciado interno
+  font-size: 20px; // Tamaño de fuente
+  color: white; // Color del texto
+  transition: background-color 0.3s; // Transición suave para el color de fondo
+
+  &:disabled {
+    background-color: gray; // Color de fondo para el botón deshabilitado
+    cursor: not-allowed; // Cambiar el cursor
+  }
+
+  &:hover {
+    background-color: #a05a9e; // Cambiar color al pasar el mouse
+  }
 }
