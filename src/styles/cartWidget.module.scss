@@ -1,0 +1,49 @@
+.cartLink {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50px;
+  // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  z-index: 1000; /* Asegura que esté encima de otros elementos */
+  transition: transform 0.2s ease; /* Efecto suave al hacer hover */
+
+  .cart {
+    width: 55px;
+    margin-right: 5px;
+    position: relative;
+  }
+
+  span {
+    position: absolute;
+    top: -5px; // Ajusta según sea necesario para centrar sobre la imagen
+    right: -5px; // Ajusta según sea necesario para centrar sobre la imagen
+    background-color: #02566f79; // Fondo para hacerlo más visible
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 18px; // Asegura un tamaño mínimo
+    text-align: center;
+    // font-size: 16px;
+    // font-weight: bold;
+    // color: #333;
+  }
+
+  &:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el botón al hacer hover */
+  }
+
+  &:hover .cart {
+    transform: scale(1.2);
+  }
+
+  &:hover span {
+    color: #ffffff;
+    background-color: #02566f; /* Cambia el color del contador al hacer hover */
+  }
+}

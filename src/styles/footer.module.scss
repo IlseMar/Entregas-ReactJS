@@ -2,17 +2,26 @@
   background-color: #02556f;
   display: flex;
   flex-direction: row;
-  height: 50px;
+  height: 60px;
   width: 100%;
-  align-self: flex-end;
   justify-content: center;
+  align-content: center;
   align-items: center;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease; // Cambia la duración a 1 segundo o más
+
+  &.visible {
+    opacity: 1; // Visibilidad completa cuando llega al final de la página
+  }
 
   .logos {
     img {
-      padding: 30px;
+      width: 60px;
+      height: 60px;
+      padding: 10px;
     }
   }
 }

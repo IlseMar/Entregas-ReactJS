@@ -80,30 +80,3 @@ nav {
     }
   }
 }
-
-.cartLink {
-  display: flex; // Alinea el ícono y el contador en línea
-  align-items: center;
-  text-decoration: none; // Elimina el subrayado del enlace
-
-  .cart {
-    width: 30px; // Ajusta el tamaño de la imagen del carrito según necesites
-
-    margin-right: 5px; // Espacio entre el ícono y el contador
-    transition: transform 0.2s ease; // Efecto suave al hacer hover
-  }
-
-  span {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333; // Color de texto del contador
-  }
-
-  &:hover .cart {
-    transform: scale(1.2); // Aumenta ligeramente el ícono al pasar el cursor
-  }
-
-  &:hover span {
-    color: #007bff; // Cambia el color del contador al pasar el cursor
-  }
-}

@@ -55,7 +55,6 @@ const NavBar = () => {
         <li>
           <Switch checked={dark} setChecked={setDark} />
         </li>
-        <CartWidget />
       </ul>
     </nav>
   );
