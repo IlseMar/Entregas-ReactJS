@@ -1,0 +1,71 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.sobreMi {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.cardWrapper {
+  position: relative;
+  width: 400px;
+  perspective: 1000px;
+}
+
+.card {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #000;
+
+  &:hover {
+    transform: rotateY(180deg);
+  }
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.cardFront img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+}

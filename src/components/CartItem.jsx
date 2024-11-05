@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Cart as CartContext } from "../context/CartProvider";
 import ItemCount from "./ItemCount";
 import styles from "../styles/cartItem.module.scss";
+import classNames from "classnames";
 
 const CartItem = ({ item }) => {
   const { updateQuantity, removeFromCart } = useContext(CartContext);
@@ -26,6 +27,7 @@ const CartItem = ({ item }) => {
         itemId={item.id}
         initial={item.unidades}
         onQuantityChange={handleQuantityChange}
+        className={classNames(styles.itemCount, styles.number)}
       />
 
       <button

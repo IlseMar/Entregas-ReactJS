@@ -13,7 +13,9 @@ const NavBar = () => {
         dark ? styles["elementosNav-dark"] : ""
       }`}
     >
-      <h1 className={styles.tituloNav}>CHORMATICA</h1>
+      <NavLink className={styles.tituloLink} to={"/"}>
+        <h1 className={styles.tituloNav}>CHORMATICA</h1>
+      </NavLink>
       <ul className={styles.list}>
         <li>
           <NavLink
@@ -51,9 +53,18 @@ const NavBar = () => {
             ESPEJOS
           </NavLink>
         </li>
-        {/* <li>
-          <Switch checked={dark} setChecked={setDark} />
-        </li> */}
+        <li>
+          <NavLink
+            className={({ isActive }) => {
+              return isActive
+                ? styles.isActive
+                : `${styles.notActive} ${dark ? styles["notActive-dark"] : ""}`;
+            }}
+            to={"/about"}
+          >
+            ACERCA DE
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

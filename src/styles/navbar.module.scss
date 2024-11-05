@@ -12,6 +12,12 @@
   width: 100%;
   text-align: center;
   font-family: "Gideon Roman", serif;
+  text-decoration: none;
+
+  .tituloLink {
+    text-decoration: none;
+  }
+
   .tituloNav {
     font-family: "Gideon Roman", serif;
     color: rgb(0, 0, 0);
@@ -20,6 +26,7 @@
     letter-spacing: 10px;
     padding-top: 40px;
     padding-bottom: 20px;
+    text-decoration: none;
     justify-self: center;
   }
 }
@@ -31,6 +38,8 @@
   width: 100%;
   text-align: center;
   font-family: "Gideon Roman", serif;
+  text-decoration: none;
+
   .tituloNav {
     font-family: "Gideon Roman", serif;
     color: rgb(255, 255, 255);
@@ -40,6 +49,7 @@
     padding-top: 40px;
     padding-bottom: 20px;
     justify-self: center;
+    text-decoration: none;
   }
 }
 
