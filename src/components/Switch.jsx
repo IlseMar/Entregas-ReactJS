@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { FaMoon, FaStar } from "react-icons/fa";
 import styles from "../styles/switch.module.scss";
 
 const Switch = ({ checked, setChecked }) => {
@@ -10,7 +11,13 @@ const Switch = ({ checked, setChecked }) => {
           checked={checked}
           onChange={() => setChecked((prev) => !prev)}
         />
-        <span className={styles.slider}></span>
+        <span className={styles.slider}>
+          {checked ? (
+            <FaStar className={styles.icon} />
+          ) : (
+            <FaMoon className={styles.icon} />
+          )}
+        </span>
       </label>
     </div>
   );
