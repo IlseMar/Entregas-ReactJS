@@ -58,24 +58,27 @@ const ItemListContainer = () => {
 
   return (
     <div className={styles.container}>
-      <button
-        className={styles.button}
-        onClick={handlePrev}
-        disabled={currentPage === 0}
-      >
-        &lt;
-      </button>
-      <div className={styles.itemList}>
-        <ItemList products={currentItems} />
-      </div>
-      <div className={styles.button - styles.container}>
+      <h2>Nuestros productos</h2>
+      <div className={styles.navigation}>
         <button
           className={styles.button}
-          onClick={handleNext}
-          disabled={endIndex >= products.length}
+          onClick={handlePrev}
+          disabled={currentPage === 0}
         >
-          &gt;
+          &lt;
         </button>
+        <div className={styles.itemList}>
+          <ItemList products={currentItems} />
+        </div>
+        <div className={styles.button - styles.container}>
+          <button
+            className={styles.button}
+            onClick={handleNext}
+            disabled={endIndex >= products.length}
+          >
+            &gt;
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const Item = ({ item }) => {
   return (
     <div className={styles.container} alt={item.title}>
       <img src={item.pictureUrl} alt={item.title} />
-      <h2>{item.title}</h2>
+      <h2 className={styles.title}>{item.title}</h2>
       <span className={styles.productInfo}>{item.description}</span>
       <NavLink to={`/detail/${item.id}`}>
         <button

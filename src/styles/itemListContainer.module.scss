@@ -1,32 +1,49 @@
 .container {
+  margin-top: 50px;
   display: flex;
-  align-items: center; // Centra los elementos verticalmente
-  justify-content: space-between; // Espacio entre botones y la lista de productos
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  height: 600px;
+  background-color: #850909;
+
+  h2 {
+    text-align: center;
+    font-family: "Gideon Roman", serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .itemList {
   display: flex;
-  justify-content: center; // Centra los productos dentro de su contenedor
-  flex-grow: 1; // Permite que la lista ocupe el espacio disponible
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .button {
-  background-color: #b37fc4; // Color de fondo
-  border: none; // Sin borde
-  border-radius: 5px; // Bordes redondeados
-  cursor: pointer; // Cambiar el cursor al pasar sobre el botón
-  padding: 10px; // Espaciado interno
-  font-size: 20px; // Tamaño de fuente
-  color: white; // Color del texto
-  transition: background-color 0.3s; // Transición suave para el color de fondo
+  background-color: #b37fc4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  transition: background-color 0.3s;
 
   &:disabled {
-    background-color: gray; // Color de fondo para el botón deshabilitado
-    cursor: not-allowed; // Cambiar el cursor
+    background-color: gray;
+    cursor: not-allowed;
   }
 
   &:hover {
-    background-color: #a05a9e; // Cambiar color al pasar el mouse
+    background-color: #a05a9e;
   }
 }

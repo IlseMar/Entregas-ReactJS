@@ -1,0 +1,76 @@
+.tiktok {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.titulo-tiktok {
+  text-align: center;
+  font-family: "Gideon Roman", serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.tiktok-titulo {
+  text-align: center;
+  font-family: "Gideon Roman", serif;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.caja-tiktok {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.tt1,
+.tt2,
+.tt3 {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 325px;
+  max-width: 605px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.tt1 blockquote,
+.tt2 blockquote,
+.tt3 blockquote {
+  margin: 0;
+}
+
+.tt1 section,
+.tt2 section,
+.tt3 section {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.tt1 a,
+.tt2 a,
+.tt3 a {
+  color: #0073b1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tt1 a:hover,
+.tt2 a:hover,
+.tt3 a:hover {
+  text-decoration: underline;
+}
