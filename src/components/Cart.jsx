@@ -12,6 +12,7 @@ const Cart = () => {
   const { cart, totalQuantity, totalPrice, clearCart } =
     useContext(CartContext);
   const [buyerData, setBuyerData] = useState(null);
+
   const handleFormSubmit = (data) => {
     setBuyerData(data);
   };
@@ -43,7 +44,6 @@ const Cart = () => {
 
     try {
       const docRef = await addDoc(collection(db, "orders"), order);
-      console.log("Orden creada con ID: ", docRef.id);
       Swal.fire({
         title: "¡Compra realizada con éxito!",
         text: `Gracias, ${buyerData.name}. Su ID de orden es: ${docRef.id}. Le haremos llegar todos los detalles a ${buyerData.email}`,
@@ -52,7 +52,6 @@ const Cart = () => {
       });
       clearCart();
     } catch (error) {
-      console.error("Error al crear la orden: ", error);
       Swal.fire({
         title: "Error",
         text: "Hubo un error al procesar su compra. Por favor, intente de nuevo.",
@@ -66,16 +65,24 @@ const Cart = () => {
     <div className={styles.container}>
       {cart.length ? (
         <>
-          <h2>Carrito de compras</h2>
-          <p>Total de productos: {totalQuantity}</p>
-          <p>Total a pagar: ${totalPrice.toFixed(2)}</p>
-          {cart.map((cartItem) => (
-            <CartItem item={cartItem} key={cartItem.id} />
-          ))}
-          <CheckoutForm onFormSubmit={handleFormSubmit} />
-          <button onClick={handlePurchase} className={styles.purchaseButton}>
-            Finalizar compra
-          </button>
+          <div className={styles.cartSection}>
+            {cart.map((cartItem) => (
+              <CartItem item={cartItem} key={cartItem.id} />
+            ))}
+          </div>
+
+          <div className={styles.formSection}>
+            <CheckoutForm onFormSubmit={handleFormSubmit} />
+          </div>
+
+          <div className={styles.summarySection}>
+            <h2>Carrito de compras</h2>
+            <p>Total de productos: {totalQuantity}</p>
+            <p>Total a pagar: ${totalPrice.toFixed(2)}</p>
+            <button onClick={handlePurchase} className={styles.purchaseButton}>
+              Finalizar compra
+            </button>
+          </div>
         </>
       ) : (
         <>

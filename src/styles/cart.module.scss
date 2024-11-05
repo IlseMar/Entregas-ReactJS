@@ -1,17 +1,63 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  max-height: 100vh;
-  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 70% 30%; // CartItem con más espacio
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
   padding: 20px;
-  box-sizing: border-box;
-  justify-content: flex-start;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.message {
+.cartSection {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 20px;
+  max-height: 60vh; // Ajusta según el tamaño deseado
+  border-right: 1px solid #ccc; // Para separar visualmente las secciones
+}
+
+.formSection {
+  grid-column: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: 60vh; // Coincide con cartSection para mantener la proporción
+}
+
+.summarySection {
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
-  font-size: 1.1em;
-  color: green; // Para éxito, cambia a rojo si es error
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-family: "Gideon Roman", serif;
+  }
+
+  p {
+    margin: 5px 0;
+    font-family: "Gideon Roman", serif;
+  }
+}
+
+.purchaseButton {
+  padding: 10px 20px;
+  background-color: #6d28d9; // Morado de estilo
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 15px;
+  font-family: "Gideon Roman", serif;
+
+  &:hover {
+    background-color: #4c1d95; // Morado más oscuro para hover
+  }
 }
