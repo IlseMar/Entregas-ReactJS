@@ -47,8 +47,10 @@
 }
 
 .purchaseButton {
+  width: 200px;
+  height: 50px;
   padding: 10px 20px;
-  background-color: #6d28d9; // Morado de estilo
+  background-color: #b37fc4; // Morado de estilo
   color: white;
   border: none;
   border-radius: 5px;
@@ -58,6 +60,10 @@
   font-family: "Gideon Roman", serif;
 
   &:hover {
-    background-color: #4c1d95; // Morado más oscuro para hover
+    background-color: #a29bfe; // Morado más oscuro para hover
+    transform: scale(1.03);
+  }
+  &:active {
+    background-color: #8c7ae6;
   }
 }

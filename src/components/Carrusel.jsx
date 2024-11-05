@@ -8,9 +8,18 @@ const Carousel = () => {
   const images = [image1, image2, image3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isPaused) {
+    const loadingTimeout = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(loadingTimeout);
+  }, []);
+
+  useEffect(() => {
+    if (!isPaused && !loading) {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) =>
           prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -19,10 +28,19 @@ const Carousel = () => {
 
       return () => clearInterval(interval);
     }
-  }, [currentIndex, images.length, isPaused]);
+  }, [currentIndex, images.length, isPaused, loading]);
 
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
+
+  if (loading) {
+    return (
+      <div className={styles.loading}>
+        <div className={styles.spinner}></div>
+        <p>Cargando carrusel...</p>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -65,22 +83,32 @@ export default Carousel;
 // import image2 from "../assets/img/banners/banner_n_2.png";
 // import image3 from "../assets/img/banners/banner_n_3.png";
 
-// const Carousel = ({}) => {
+// const Carousel = () => {
 //   const images = [image1, image2, image3];
 //   const [currentIndex, setCurrentIndex] = useState(0);
+//   const [isPaused, setIsPaused] = useState(false);
 
 //   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentIndex((prevIndex) =>
-//         prevIndex === images.length - 1 ? 0 : prevIndex + 1
-//       );
-//     }, 3000);
+//     if (!isPaused) {
+//       const interval = setInterval(() => {
+//         setCurrentIndex((prevIndex) =>
+//           prevIndex === images.length - 1 ? 0 : prevIndex + 1
+//         );
+//       }, 2000);
 
-//     return () => clearInterval(interval);
-//   }, [images.length]);
+//       return () => clearInterval(interval);
+//     }
+//   }, [currentIndex, images.length, isPaused]);
+
+//   const handleMouseEnter = () => setIsPaused(true);
+//   const handleMouseLeave = () => setIsPaused(false);
 
 //   return (
-//     <div className={styles.carousel}>
+//     <div
+//       className={styles.carousel}
+//       onMouseEnter={handleMouseEnter}
+//       onMouseLeave={handleMouseLeave}
+//     >
 //       {images.map((image, index) => (
 //         <img
 //           key={index}
@@ -95,8 +123,12 @@ export default Carousel;
 //         {images.map((_, index) => (
 //           <span
 //             key={index}
-//             className={currentIndex === index ? styles.active : styles.dot}
-//             onClick={() => setCurrentIndex(index)} // Permite cambiar de imagen al hacer clic
+//             className={
+//               currentIndex === index
+//                 ? `${styles.dot} ${styles.active}`
+//                 : styles.dot
+//             }
+//             onClick={() => setCurrentIndex(index)}
 //           />
 //         ))}
 //       </div>

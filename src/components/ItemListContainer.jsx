@@ -7,13 +7,15 @@ import styles from "../styles/itemListContainer.module.scss";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true); // Estado de carga
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 3; // Número de elementos por página
+  const itemsPerPage = 2;
   const { categoryId } = useParams();
 
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true); // Inicia la carga
         let productsFiltered = [];
 
         if (categoryId) {
@@ -35,6 +37,8 @@ const ItemListContainer = () => {
         setProducts(productsFiltered);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false); // Finaliza la carga
       }
     })();
   }, [categoryId]);
@@ -59,18 +63,25 @@ const ItemListContainer = () => {
   return (
     <div className={styles.container}>
       <h2>Nuestros productos</h2>
-      <div className={styles.navigation}>
-        <button
-          className={styles.button}
-          onClick={handlePrev}
-          disabled={currentPage === 0}
-        >
-          &lt;
-        </button>
-        <div className={styles.itemList}>
-          <ItemList products={currentItems} />
+      {loading ? (
+        <div className={styles.loading}>
+          {" "}
+          {/* Componente de carga */}
+          <div className={styles.spinner}></div>
+          <p>Cargando productos...</p>
         </div>
-        <div className={styles.button - styles.container}>
+      ) : (
+        <div className={styles.navigation}>
+          <button
+            className={styles.button}
+            onClick={handlePrev}
+            disabled={currentPage === 0}
+          >
+            &lt;
+          </button>
+          <div className={styles.itemList}>
+            <ItemList products={currentItems} />
+          </div>
           <button
             className={styles.button}
             onClick={handleNext}
@@ -79,7 +90,7 @@ const ItemListContainer = () => {
             &gt;
           </button>
         </div>
-      </div>
+      )}
     </div>
   );
 };
