@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Cart as CartContext } from "../context/CartProvider";
 import CartItem from "./CartItem";
 import styles from "../styles/cart.module.scss";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/config";
 import Swal from "sweetalert2";
@@ -12,6 +12,21 @@ const Cart = () => {
   const { cart, totalQuantity, totalPrice, clearCart } =
     useContext(CartContext);
   const [buyerData, setBuyerData] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      Swal.fire({
+        title: "No hay productos en el carrito",
+        text: "Vuelve a la tienda para agregar productos.",
+        icon: "info",
+        showConfirmButton: true,
+        confirmButtonText: "Volver al inicio",
+      }).then(() => {
+        navigate("/"); // Redirige al inicio
+      });
+    }
+  }, [cart, navigate]); // Solo ejecuta cuando cart cambie
 
   const handleFormSubmit = (data) => {
     setBuyerData(data);
@@ -46,11 +61,19 @@ const Cart = () => {
       const docRef = await addDoc(collection(db, "orders"), order);
       Swal.fire({
         title: "¡Compra realizada con éxito!",
-        text: `Gracias, ${buyerData.name}. Su ID de orden es: ${docRef.id}. Le haremos llegar todos los detalles a ${buyerData.email}`,
+        text: `Gracias, ${buyerData.name}. 
+        Tu ID de orden es: ${docRef.id}. 
+        Te haremos llegar todos los detalles a ${buyerData.email}`,
         icon: "success",
         confirmButtonText: "Aceptar",
+        width: 400,
+        padding: "1em",
+        color: "#716add",
+        background: "#fff",
+        backdrop: `rgba(0,0,123,0.4) url("../assets/gift/PYh.gif") `,
       });
       clearCart();
+      navigate("/");
     } catch (error) {
       Swal.fire({
         title: "Error",
@@ -85,10 +108,9 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        <>
-          <h1>No hay productos en el carrito</h1>
-          <NavLink to={"/"}>Volver al inicio</NavLink>
-        </>
+        // Si el carrito está vacío, no se muestra nada aquí
+        // Todo lo manejará SweetAlert
+        <></>
       )}
     </div>
   );

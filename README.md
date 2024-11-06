@@ -1,8 +1,54 @@
-# React + Vite
+# E-commerce Chromática
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Chromática es un proyecto enfocado en la personalización de fundas para celular y espejos a través de técnica de pintura a mano con acrílico y encapsulado con resina. Y acá se vuelve una tienda en línea!
 
-Currently, two official plugins are available:
+## Implementación
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para correr este proyecto localmente, implementa:
+
+Clona el proyecto:
+
+```bash
+https://github.com/IlseMar/Entregas-ReactJS.git
+```
+
+Instalar dependencias:
+
+```bash
+  npm install
+```
+
+Arrancar el servidor
+
+```bash
+  npm run dev
+```
+
+## Caracteristicas
+
+- Preprosesador Saas
+- Modo oscuro
+- Firebase/firestor
+- Librería classNames:
+
+```bash
+  npm install classnames
+```
+
+- Librería react-icons:
+
+```bash
+npm i -g create-react-app fonts-app
+```
+
+- Librería SweetAlert2
+
+```bash
+npm install sweetalert2
+```
+
+## Tecnología
+
+**Client:** ReactJS, Sass
+
+**Server:** Firestor
