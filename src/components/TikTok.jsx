@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "../styles/TikTok.module.scss";
+import styles from "../styles/tiktok.module.scss";
 
 const TikTok = () => {
   useEffect(() => {
