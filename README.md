@@ -52,3 +52,9 @@ npm install sweetalert2
 **Client:** ReactJS, Sass
 
 **Server:** Firestor
+
+## Repositorio inicial
+
+Acá están los inicios del proyecto y luego lo migré a este repositorio
+
+https://github.com/IlseMar/proyectoReact/commits/main/

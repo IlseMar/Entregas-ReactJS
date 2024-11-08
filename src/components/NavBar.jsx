@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import styles from "../styles/navbar.module.scss";
 import { NavLink } from "react-router-dom";
-// import Switch from "./Switch";
 import { Theme } from "../context/ThemeProvider";
 
 const NavBar = () => {

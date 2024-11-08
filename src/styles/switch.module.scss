@@ -42,7 +42,7 @@
 }
 
 input:checked + .slider .icon {
-  color: #fdd835; // Color de la estrella
+  color: #fdd835;
   &:hover {
     transform: scale(1.2);
     filter: drop-shadow(10px 5px 5px #ffffff79);
@@ -50,7 +50,7 @@ input:checked + .slider .icon {
 }
 
 .icon {
-  color: #9285ec; // Color de la luna
+  color: #9285ec;
   &:hover {
     transform: scale(1.2);
     filter: drop-shadow(10px 5px 5px #2b056979);

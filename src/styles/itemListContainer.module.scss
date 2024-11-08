@@ -47,7 +47,6 @@
   }
 }
 
-/* Estilos para el componente de carga */
 .loading {
   display: flex;
   flex-direction: column;
@@ -71,52 +70,3 @@
     }
   }
 }
-
-// .container {
-//   margin-top: 50px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding: 20px;
-//   height: 600px;
-
-//   h2 {
-//     text-align: center;
-//     font-family: "Gideon Roman", serif;
-//     font-size: 50px;
-//     margin-bottom: 20px;
-//   }
-// }
-
-// .navigation {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   width: 100%;
-// }
-
-// .itemList {
-//   display: flex;
-//   justify-content: center;
-//   flex-grow: 1;
-// }
-
-// .button {
-//   background-color: #b37fc4;
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   padding: 10px;
-//   font-size: 20px;
-//   color: white;
-//   transition: background-color 0.3s;
-
-//   &:disabled {
-//     background-color: gray;
-//     cursor: not-allowed;
-//   }
-
-//   &:hover {
-//     background-color: #a05a9e;
-//   }
-// }

@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-columns: 70% 30%; // CartItem con más espacio
+  grid-template-columns: 70% 30%;
   grid-template-rows: auto 1fr auto;
   gap: 20px;
   padding: 20px;
@@ -15,8 +15,8 @@
   gap: 10px;
   overflow-y: auto;
   padding-right: 20px;
-  max-height: 60vh; // Ajusta según el tamaño deseado
-  border-right: 1px solid #ccc; // Para separar visualmente las secciones
+  max-height: 60vh;
+  border-right: 1px solid #ccc;
 }
 
 .formSection {
@@ -24,7 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  max-height: 60vh; // Coincide con cartSection para mantener la proporción
+  max-height: 60vh;
 }
 
 .summarySection {
@@ -50,7 +50,7 @@
   width: 200px;
   height: 50px;
   padding: 10px 20px;
-  background-color: #b37fc4; // Morado de estilo
+  background-color: #b37fc4;
   color: white;
   border: none;
   border-radius: 5px;
@@ -60,7 +60,7 @@
   font-family: "Gideon Roman", serif;
 
   &:hover {
-    background-color: #a29bfe; // Morado más oscuro para hover
+    background-color: #a29bfe;
     transform: scale(1.03);
   }
   &:active {

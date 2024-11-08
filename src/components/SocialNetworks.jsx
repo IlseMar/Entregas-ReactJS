@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/SocialNetworks.module.scss";
+import styles from "../styles/socialNetworks.module.scss";
 import instagramLogo from "../assets/img/logos/Instagram.png";
 
 const SocialNetworks = () => {

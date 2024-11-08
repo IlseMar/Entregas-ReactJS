@@ -20,8 +20,8 @@ const Item = ({ item }) => {
       <NavLink to={`/detail/${item.id}`}>
         <button
           className={styles.button}
-          onMouseMove={handleMove} // Manejador para mouse move
-          onTouchMove={(e) => handleMove(e.changedTouches[0])} // Manejador para touch move
+          onMouseMove={handleMove}
+          onTouchMove={(e) => handleMove(e.changedTouches[0])}
         >
           <div className={styles.pattern}>
             <div
@@ -40,44 +40,3 @@ const Item = ({ item }) => {
 };
 
 export default Item;
-
-// import { useState } from "react";
-// import styles from "../styles/item.module.scss";
-// import { NavLink } from "react-router-dom";
-// import classNames from "classnames";
-
-// const Item = ({ item }) => {
-//   const [coords, setCoords] = useState({ x: 0, y: 0 });
-
-//   const handleMove = (e) => {
-//     const button = e.currentTarget;
-//     const x = -50 + (e.pageX - button.offsetLeft - 300 / 2) / 3;
-//     const y = -10 + (e.pageY - button.offsetTop - 100 / 2) / 3;
-//     setCoords({ x, y });
-//   };
-
-//   return (
-//     <div className={styles.container} alt={item.title}>
-//       <img src={item.pictureUrl} />
-//       <h2>{item.title}</h2>
-//       <span className={styles.productInfo}>{item.description}</span>
-//       <NavLink to={`/detail/${item.id}`}>
-//         <button className={styles.button}>
-//           <div className={styles.pattern}>
-//             <div
-//               className={classNames(styles.target, styles.inner, styles.bg4)}
-//             ></div>
-//             {/* inner bg4 */}
-//           </div>
-//           <div className={styles.text}>Detalles</div>
-//         </button>
-
-//         {/* <button className={styles.btnDetail}>
-//           <span className={styles.textDetail}>Detalles</span>
-//         </button> */}
-//       </NavLink>
-//     </div>
-//   );
-// };
-
-// export default Item;

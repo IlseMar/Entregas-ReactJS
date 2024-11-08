@@ -6,14 +6,14 @@ const ItemCount = ({ initial = 1, onQuantityChange, className }) => {
   const [count, setCount] = useState(initial);
 
   const increment = (event) => {
-    event.stopPropagation(); // Detener la propagación del evento
+    event.stopPropagation();
     const newCount = count + 1;
     setCount(newCount);
     onQuantityChange(newCount);
   };
 
   const decrement = (event) => {
-    event.stopPropagation(); // Detener la propagación del evento
+    event.stopPropagation();
     if (count > 1) {
       const newCount = count - 1;
       setCount(newCount);

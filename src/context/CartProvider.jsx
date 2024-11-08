@@ -47,7 +47,7 @@ const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    setCart([]); // Vacía el carrito
+    setCart([]);
     localStorage.removeItem("cart");
   };
 

@@ -23,10 +23,10 @@ const Cart = () => {
         showConfirmButton: true,
         confirmButtonText: "Volver al inicio",
       }).then(() => {
-        navigate("/"); // Redirige al inicio
+        navigate("/");
       });
     }
-  }, [cart, navigate]); // Solo ejecuta cuando cart cambie
+  }, [cart, navigate]);
 
   const handleFormSubmit = (data) => {
     setBuyerData(data);
@@ -108,7 +108,6 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        // Si el carrito está vacío, no se muestra nada aquí
         // Todo lo manejará SweetAlert
         <></>
       )}

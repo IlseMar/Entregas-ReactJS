@@ -7,15 +7,15 @@ import styles from "../styles/itemListContainer.module.scss";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado de carga
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 2;
+  const itemsPerPage = 3;
   const { categoryId } = useParams();
 
   useEffect(() => {
     (async () => {
       try {
-        setLoading(true); // Inicia la carga
+        setLoading(true);
         let productsFiltered = [];
 
         if (categoryId) {
@@ -38,7 +38,7 @@ const ItemListContainer = () => {
       } catch (error) {
         console.log(error);
       } finally {
-        setLoading(false); // Finaliza la carga
+        setLoading(false);
       }
     })();
   }, [categoryId]);
@@ -66,7 +66,6 @@ const ItemListContainer = () => {
       {loading ? (
         <div className={styles.loading}>
           {" "}
-          {/* Componente de carga */}
           <div className={styles.spinner}></div>
           <p>Cargando productos...</p>
         </div>

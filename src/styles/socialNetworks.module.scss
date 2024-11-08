@@ -1,5 +1,5 @@
 .cajaCompartir {
-  width: 100vw; // Ocupa todo el ancho de la ventana
+  width: 100vw;
   height: 600px;
   display: grid;
   background-image: url("../assets/img/banners/Banner.png");
@@ -16,7 +16,7 @@
   .fondoBlanco {
     width: 100%;
     height: 100%;
-    max-width: 800px; // Limita el ancho del contenido para que no sea demasiado ancho
+    max-width: 800px;
     background-color: rgba(228, 174, 189, 0.9);
     grid-column: 4 / 8;
     grid-row: 3 / 7;
